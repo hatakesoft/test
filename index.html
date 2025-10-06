@@ -45,7 +45,10 @@
 
 const ModeType = {
 	HOME: 0,
+	INIT: 0, // 初めから
+	LOAD_DATE: 0, // 続きから
 };
+
 class Train {
 	constructor(name, color) {
 		this.name = name;
@@ -53,28 +56,50 @@ class Train {
 	}
 }
 
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 let mode = ModeType.HOME;
 let n;
 
 function draw() {
-	const canvas = document.getElementById('canvas').getContext('2d');
-	canvas.clearRect(0, 0, n, n);
+	ctx.clearRect(0, 0, n, n);
 
 	switch(mode) {
 		case ModeType.HOME:
-			canvas.font = `${n / 5.5}px Arial`;
-			canvas.fillStyle = 'black';
-			canvas.fillText('桃太郎電鉄', (n - canvas.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
-			canvas.fillStyle = 'white';
-			canvas.fillRect((n - canvas.measureText('初めから').width) / 2, n / 14 * 5, canvas.measureText('初めから').width, n / 14 * 3);
-			canvas.fillRect((n - canvas.measureText('続きから').width) / 2, n / 14 * 9, canvas.measureText('続きから').width, n / 14 * 3);
-			canvas.font = `${n / 9}px Arial`;
-			canvas.fillStyle = 'black';
-			canvas.fillText('初めから', (n - canvas.measureText('初めから').width) / 2, n / 14 * 5 + (n / 14 * 3 - (n / 14 * 3 - canvas.measureText('初めから').actualBoundingBoxAscent - canvas.measureText('初めから').actualBoundingBoxDescent) / 2));
-			canvas.fillText('続きから', (n - canvas.measureText('続きから').width) / 2, n / 14 * 9 + (n / 14 * 3 - (n / 14 * 3 - canvas.measureText('続きから').actualBoundingBoxAscent - canvas.measureText('続きから').actualBoundingBoxDescent) / 2));
+			ctx.font = `${n / 5.5}px Arial`;
+			ctx.fillStyle = 'black';
+			ctx.fillText('桃太郎電鉄', (n - ctx.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
+			ctx.fillStyle = 'white';
+			ctx.fillRect(n / 28 * 3, n / 14 * 5, n / 14 * 11, n / 14 * 3);
+			ctx.fillRect(n / 28 * 3, n / 14 * 9, n / 14 * 11, n / 14 * 3);
+			ctx.font = `${n / 9}px Arial`;
+			ctx.fillStyle = 'black';
+			ctx.fillText('初めから', (n - ctx.measureText('初めから').width) / 2, n / 14 * 5 + (n / 14 * 3 - (n / 14 * 3 - ctx.measureText('初めから').actualBoundingBoxAscent - ctx.measureText('初めから').actualBoundingBoxDescent) / 2));
+			ctx.fillText('続きから', (n - ctx.measureText('続きから').width) / 2, n / 14 * 9 + (n / 14 * 3 - (n / 14 * 3 - ctx.measureText('続きから').actualBoundingBoxAscent - ctx.measureText('続きから').actualBoundingBoxDescent) / 2));
 			break;
 	}
 }
+
+canvas.addEventListener('pointerdown', function(event) {
+	const rect = canvas.getBoundingClientRect();
+	const mouseX = event.clientX - rect.left;
+	const mouseY = event.clientY - rect.top;
+	if(
+		mouseX >= n / 28 * 3 &&
+		mouseX <= n / 28 * 25 &&
+		mouseY >= n / 14 * 5 &&
+		mouseY <= n / 14 * 8
+	) {
+		mode = ModeType.INIT;
+	} else if(
+		mouseX >= n / 28 * 3 &&
+		mouseX <= n / 28 * 25 &&
+		mouseY >= n / 14 * 9 &&
+		mouseY <= n / 14 * 12
+	) {
+		mode = ModeType.LOAD_DATE;
+	}
+});
 
 window.addEventListener('load', function() {
 	const canvas = document.getElementById('canvas');
