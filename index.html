@@ -45,8 +45,8 @@
 
 const ModeType = {
 	HOME: 0,
-	INIT: 0, // 初めから
-	LOAD_DATE: 0, // 続きから
+	INIT: 1, // 初めから
+	LOAD_DATE: 2, // 続きから
 };
 
 class Train {
@@ -99,6 +99,8 @@ canvas.addEventListener('pointerdown', function(event) {
 	) {
 		mode = ModeType.LOAD_DATE;
 	}
+
+	draw();
 });
 
 window.addEventListener('load', function() {
