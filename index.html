@@ -62,11 +62,12 @@ function draw() {
 
 	switch(mode) {
 		case ModeType.HOME:
-			canvas.font = `${n / 20}px Arial`;
+			canvas.font = `${n / 5.5}px Arial`;
 			canvas.fillStyle = 'black';
-			canvas.fillText(`${canvas.measureText('桃太郎電鉄')}`, (n - canvas.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
+			canvas.fillText('桃太郎電鉄', (n - canvas.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
 			canvas.fillStyle = 'white';
-			canvas.fiilRect();
+			canvas.fillRect((n - canvas.measureText('初めから').width) / 2, n / 14 * 7, canvas.measureText('初めから').width, n / 14 * 3);
+			canvas.fillRect((n - canvas.measureText('続きから').width) / 2, n / 14 * 11, canvas.measureText('続きから').width, n / 14 * 3);
 			break;
 	}
 }
@@ -83,4 +84,3 @@ window.addEventListener('load', function() {
 </body>
 
 </html>
-
