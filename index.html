@@ -70,8 +70,8 @@ function draw() {
 			canvas.fillRect((n - canvas.measureText('続きから').width) / 2, n / 14 * 9, canvas.measureText('続きから').width, n / 14 * 3);
 			canvas.font = `${n / 9}px Arial`;
 			canvas.fillStyle = 'black';
-			canvas.fillText('初めから', (n - canvas.measureText('初めから').width) / 2, n / 14 * 5);
-			canvas.fillText('続きから', (n - canvas.measureText('続きから').width) / 2, n / 14 * 9);
+			canvas.fillText('初めから', (n - canvas.measureText('初めから').width) / 2, n / 14 * 5 + (n / 14 * 3 - canvas.measureText('初めから').height) / 2);
+			canvas.fillText('続きから', (n - canvas.measureText('続きから').width) / 2, n / 14 * 9 + (n / 14 * 3 - canvas.measureText('続きから').height) / 2);
 			break;
 	}
 }
