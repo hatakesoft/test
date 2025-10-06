@@ -62,9 +62,9 @@ function draw() {
 
 	switch(mode) {
 		case ModeType.HOME:
-			canvas.font = `${n / 10}px Arial`;
+			canvas.font = `${n / 8}px Arial`;
 			canvas.fillStyle = 'black';
-			canvas.fillText('桃太郎電鉄', (n - canvas.measureText('桃太郎電鉄').width) / 2, n / 7 * 4);
+			canvas.fillText('桃太郎電鉄', (n - canvas.measureText('桃太郎電鉄').width) / 2, n / 7);
 			break;
 	}
 }
