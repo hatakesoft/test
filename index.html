@@ -156,11 +156,13 @@ canvas.addEventListener('pointerdown', function(event) {
 document.getElementById('startButton').addEventListener('click', function() {
 	mode = ModeType.INIT;
 	showScreen('init');
+	draw();
 });
 
 document.getElementById('continueButton').addEventListener('click', function() {
 	mode = ModeType.LOAD_DATE;
 	showScreen('loadData');
+	draw();
 });
 
 window.addEventListener('load', function() {
