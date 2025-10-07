@@ -13,27 +13,79 @@
 			padding: 0;
 		}
 
+		.screen {
+			display: none;
+		}
+
+		.active {
+			display: block;
+		}
+
 		#canvas {
 			background-color: deepskyblue;
+			color: black;
+			cursor: pointer;
+		}
+
+		#startButton {
+			background-color: white;
+			color: black;
+			cursor: pointer;
 		}
 
 		@media (min-aspect-ratio: 1/1) {
 			#canvas {
 				position: absolute;
-				top: 0;
 				left: calc((100vw - 100vh) / 2);
-				height: 100vh;
+				top: 0;
 				width: 100vh;
+				height: 100vh;
+			}
+
+			#startButton {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 28 * 3);
+				top: calc(100vh / 14 * 5);
+				width: calc(100vh / 14 * 11);
+				height: calc(100vh / 14 * 3);
+				font-size: calc(100vh / 9);
+			}
+
+			#continueButton {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 28 * 3);
+				top: calc(100vh / 14 * 9);
+				width: calc(100vh / 14 * 11);
+				height: calc(100vh / 14 * 3);
+				font-size: calc(100vh / 9);
 			}
 		}
 
 		@media (max-aspect-ratio: 1/1) {
 			#canvas {
 				position: absolute;
-				top: calc((100vh - 100vw) / 2);
 				left: 0;
-				height: 100vw;
+				top: calc((100vh - 100vw) / 2);
 				width: 100vw;
+				height: 100vw;
+			}
+
+			#startButton {
+				position: absolute;
+				left: calc(100vw / 28 * 3);
+				top: calc((100vh - 100vw) / 2 + 100vw / 14 * 5);
+				width: calc(100vw / 14 * 11);
+				height: calc(100vw / 14 * 3);
+				font-size: calc(100vw / 9);
+			}
+
+			#continueButton {
+				position: absolute;
+				left: calc(100vw / 28 * 3);
+				top: calc((100vh - 100vw) / 2 + 100vw / 14 * 9);
+				width: calc(100vw / 14 * 11);
+				height: calc(100vw / 14 * 3);
+				font-size: calc(100vw / 9);
 			}
 		}
 	</style>
@@ -41,6 +93,14 @@
 
 <body>
 	<canvas id="canvas"></canvas>
+	<div id="home" class="screen active">
+		<button id='startButton'>初めから</button>
+		<button id='continueButton'>続きから</button>
+	</div>
+	<div id="init" class="screen">
+	</div>
+	<div id="loadData" class="screen">
+	</div>
 	<script>
 
 const ModeType = {
@@ -61,6 +121,13 @@ const ctx = canvas.getContext('2d');
 let mode = ModeType.HOME;
 let n;
 
+function showScreen(id) {
+	document.querySelectorAll('.screen').forEach(function(screen) {
+		screen.classList.remove('avtive');
+	});
+	document.getElementById(id).classList.add('active');
+}
+
 function draw() {
 	ctx.clearRect(0, 0, n, n);
 
@@ -69,13 +136,13 @@ function draw() {
 			ctx.font = `${n / 5.5}px Arial`;
 			ctx.fillStyle = 'black';
 			ctx.fillText('桃太郎電鉄', (n - ctx.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
-			ctx.fillStyle = 'white';
-			ctx.fillRect(n / 28 * 3, n / 14 * 5, n / 14 * 11, n / 14 * 3);
-			ctx.fillRect(n / 28 * 3, n / 14 * 9, n / 14 * 11, n / 14 * 3);
-			ctx.font = `${n / 9}px Arial`;
-			ctx.fillStyle = 'black';
-			ctx.fillText('初めから', (n - ctx.measureText('初めから').width) / 2, n / 14 * 7);
-			ctx.fillText('続きから', (n - ctx.measureText('続きから').width) / 2, n / 14 * 11);
+		//	ctx.fillStyle = 'white';
+		//	ctx.fillRect(n / 28 * 3, n / 14 * 5, n / 14 * 11, n / 14 * 3);
+		//	ctx.fillRect(n / 28 * 3, n / 14 * 9, n / 14 * 11, n / 14 * 3);
+		//	ctx.font = `${n / 9}px Arial`;
+		//	ctx.fillStyle = 'black';
+		//	ctx.fillText('初めから', (n - ctx.measureText('初めから').width) / 2, n / 14 * 7);
+		//	ctx.fillText('続きから', (n - ctx.measureText('続きから').width) / 2, n / 14 * 11);
 			break;
 	}
 }
@@ -101,6 +168,14 @@ canvas.addEventListener('pointerdown', function(event) {
 	}
 
 	draw();
+});
+
+document.getElementById('startButton').addEventListener('onclick', function() {
+	showScreen('init');
+});
+
+document.getElementById('continueButton').addEventListener('onclick', function() {
+	showScreen('loadData')
 });
 
 window.addEventListener('load', function() {
