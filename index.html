@@ -33,6 +33,12 @@
 			cursor: pointer;
 		}
 
+		#continueButton {
+			background-color: white;
+			color: black;
+			cursor: pointer;
+		}
+
 		@media (min-aspect-ratio: 1/1) {
 			#canvas {
 				position: absolute;
@@ -123,7 +129,7 @@ let n;
 
 function showScreen(id) {
 	document.querySelectorAll('.screen').forEach(function(screen) {
-		screen.classList.remove('avtive');
+		screen.classList.remove('active');
 	});
 	document.getElementById(id).classList.add('active');
 }
@@ -136,13 +142,6 @@ function draw() {
 			ctx.font = `${n / 5.5}px Arial`;
 			ctx.fillStyle = 'black';
 			ctx.fillText('桃太郎電鉄', (n - ctx.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
-		//	ctx.fillStyle = 'white';
-		//	ctx.fillRect(n / 28 * 3, n / 14 * 5, n / 14 * 11, n / 14 * 3);
-		//	ctx.fillRect(n / 28 * 3, n / 14 * 9, n / 14 * 11, n / 14 * 3);
-		//	ctx.font = `${n / 9}px Arial`;
-		//	ctx.fillStyle = 'black';
-		//	ctx.fillText('初めから', (n - ctx.measureText('初めから').width) / 2, n / 14 * 7);
-		//	ctx.fillText('続きから', (n - ctx.measureText('続きから').width) / 2, n / 14 * 11);
 			break;
 	}
 }
@@ -151,31 +150,17 @@ canvas.addEventListener('pointerdown', function(event) {
 	const rect = canvas.getBoundingClientRect();
 	const mouseX = event.clientX - rect.left;
 	const mouseY = event.clientY - rect.top;
-	if(
-		mouseX >= n / 28 * 3 &&
-		mouseX <= n / 28 * 25 &&
-		mouseY >= n / 14 * 5 &&
-		mouseY <= n / 14 * 8
-	) {
-		mode = ModeType.INIT;
-	} else if(
-		mouseX >= n / 28 * 3 &&
-		mouseX <= n / 28 * 25 &&
-		mouseY >= n / 14 * 9 &&
-		mouseY <= n / 14 * 12
-	) {
-		mode = ModeType.LOAD_DATE;
-	}
-
 	draw();
 });
 
-document.getElementById('startButton').addEventListener('onclick', function() {
+document.getElementById('startButton').addEventListener('click', function() {
+	mode = ModeType.INIT;
 	showScreen('init');
 });
 
-document.getElementById('continueButton').addEventListener('onclick', function() {
-	showScreen('loadData')
+document.getElementById('continueButton').addEventListener('click', function() {
+	mode = ModeType.LOAD_DATE;
+	showScreen('loadData');
 });
 
 window.addEventListener('load', function() {
