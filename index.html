@@ -99,7 +99,7 @@
 				left: calc(100vw / 30);
 				top: calc((100vh - 100vw) / 2 + 100vw / 30);
 				width: calc(100vw / 30 * 28);
-				height: calc(100vw / 3 - 100vw / 30 * 2);
+				height: calc(100vw / 6 - 100vw / 30 * 2);
 			}
 		}
 	</style>
@@ -153,9 +153,10 @@ function draw() {
 			ctx.fillText('桃太郎電鉄', (n - ctx.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
 			break;
 		case ModeType.INIT:
-			ctx.fillStyle = 'rbga(255, 255, 255, 0.5)';
-			ctx.fillRect(n / 30, n / 3 * 2 + n / 30, n / 30 * 28, n - n / 30);
-			ctx.font = `${n / 30 * 25 / 3}`;
+			ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+			ctx.fillRect(n / 30, n / 3 * 2 + n / 30, n / 30 * 28, n / 3 - n / 30 * 2);
+			ctx.font = `${(n / 3 - n / 30 * 5) / 3} Arial`;
+			ctx.fillStyle = 'black';
 			ctx.fillText('社長の名前と', n / 30 * 3, n / 3 * 2 + n / 30 + n / 30 * 25 / 3);
 			ctx.fillText('電車の色を', n / 30 * 3, n / 3 * 2 + n / 30 + n / 30 * 25 / 3 * 2);
 			ctx.fillText('設定してください', n / 30 * 3, n / 3 * 2 + n / 30 + n / 30 * 25);
