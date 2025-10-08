@@ -401,7 +401,7 @@ canvas.addEventListener('pointerdown', function(event) {
 		mouseX - n / 30 * 26 >= 0 &&
 		mouseX - n / 30 * 26 <= n / 30 * 2 &&
 		mouseY - n / 30 * 27 >= 0 &&
-		mouseY - n / 30 * 27 <= 1 - Math.abs((mouseX - n / 30 * 26) - 1)
+		mouseY - n / 30 * 27 <= n / 30 - Math.abs((mouseX - n / 30 * 26) - n / 30)
 	) {
 		switch(mode) {
 			case ModeType.INIT:
