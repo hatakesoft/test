@@ -33,12 +33,14 @@
 		}
 
 		#trainName0, #trainName1, #trainName2, #trainName3 {
+			color: white;
 			font-family: '游明朝';
 			margin: 0;
 			padding: 0;
 		}
 
 		#trainColor0, #trainColor1, #trainColor2, #trainColor3 {
+			color: white;
 			font-family: '游明朝';
 			margin: 0;
 			padding: 0;
@@ -350,6 +352,8 @@ function draw() {
 			message('社長の名前と', '電車の色を', '設定してください');
 			for(let i = 0; i < 4; i ++) {
 				ctx.fillStyle = train[i].color;
+				document.getElementById(`trainName${i}`).style.backgroundColor = `dark${train[i].color}`;
+				document.getElementById(`trainColor${i}`).style.backgroundColor = `dark${train[i].color}`;
 				ctx.fillRect(n / 30, n / 6 * i + n / 60, n / 30 * 28, n / 6 - n / 60 * 2);
 			}
 			break;
