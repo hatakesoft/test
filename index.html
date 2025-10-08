@@ -24,19 +24,20 @@
 		#canvas {
 			background-color: deepskyblue;
 			color: black;
-			cursor: pointer;
 		}
 
-		#startButton {
+		#startButton, #continueButton {
 			background-color: white;
 			color: black;
-			cursor: pointer;
+			font-family: '游明朝';
 		}
 
-		#continueButton {
-			background-color: white;
-			color: black;
-			cursor: pointer;
+		#trainAName, #trainBName, #trainCName, #trainDName {
+			font-family: '游明朝';
+		}
+
+		#trainAColor, #trainBColor, #trainCColor, #trainDColor {
+			font-family: '游明朝';
 		}
 
 		@media (min-aspect-ratio: 1/1) {
@@ -64,6 +65,78 @@
 				width: calc(100vh / 14 * 11);
 				height: calc(100vh / 14 * 3);
 				font-size: calc(100vh / 9);
+			}
+
+			#trainAName {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 2);
+				top: calc(100vh / 20);
+				width: calc(100vh / 30 * 13);
+				height: calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainBName {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 2);
+				top: calc(100vh / 20 + 100vh / 6);
+				width: calc(100vh / 30 * 13);
+				height: calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainCName {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 2);
+				top: calc(100vh / 20 + 100vh / 6 * 2);
+				width: calc(100vh / 30 * 13);
+				height: calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainDName {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 2);
+				top: calc(100vh / 20 + 100vh / 6 * 3);
+				width: calc(100vh / 30 * 13);
+				height: calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainAColor {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 20);
+				top: calc(100vh / 20);
+				width: calc(100vh / 30 * 8);
+				height:calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainBColor {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 20);
+				top: calc(100vh / 20 + 100vh / 6);
+				width: calc(100vh / 30 * 8);
+				height:calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainCColor {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 20);
+				top: calc(100vh / 20 + 100vh / 6 * 2);
+				width: calc(100vh / 30 * 8);
+				height:calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
+			}
+
+			#trainDColor {
+				position: absolute;
+				left: calc((100vw - 100vh) / 2 + 100vh / 30 * 20);
+				top: calc(100vh / 20 + 100vh / 6 * 3);
+				width: calc(100vh / 30 * 8);
+				height:calc(100vh / 6 - 100vh / 20 * 2);
+				font-size: calc(100vh / 20);
 			}
 		}
 
@@ -96,10 +169,74 @@
 
 			#trainAName {
 				position: absolute;
-				left: calc(100vw / 30);
-				top: calc((100vh - 100vw) / 2 + 100vw / 30);
-				width: calc(100vw / 30 * 28);
-				height: calc(100vw / 6 - 100vw / 30 * 2);
+				left: calc(100vw / 30 * 2);
+				top: calc((100vh - 100vw) / 2 + 100vw / 20);
+				width: calc(100vw / 30 * 13);
+				height: calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainBName {
+				position: absolute;
+				left: calc(100vw / 30 * 2);
+				top: calc((100vh - 100vw) / 2 + 100vw / 6 + 100vw / 20);
+				width: calc(100vw / 30 * 13);
+				height: calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainCName {
+				position: absolute;
+				left: calc(100vw / 30 * 2);
+				top: calc((100vh - 100vw) / 2 + 100vw / 6 * 2 + 100vw / 20);
+				width: calc(100vw / 30 * 13);
+				height: calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainDName {
+				position: absolute;
+				left: calc(100vw / 30 * 2);
+				top: calc((100vh - 100vw) / 2 + 100vw / 6 * 3 + 100vw / 20);
+				width: calc(100vw / 30 * 13);
+				height: calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainAColor {
+				position: absolute;
+				left: calc(100vw / 30 * 20);
+				top: calc((100vh - 100vw) / 2 + 100vw / 20);
+				width: calc(100vw / 30 * 8);
+				height:calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainBColor {
+				position: absolute;
+				left: calc(100vw / 30 * 20);
+				top: calc((100vh - 100vw) / 2 + 100vw / 6 + 100vw / 20);
+				width: calc(100vw / 30 * 8);
+				height:calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainCColor {
+				position: absolute;
+				left: calc(100vw / 30 * 20);
+				top: calc((100vh - 100vw) / 2 + 100vw / 6 * 2 + 100vw / 20);
+				width: calc(100vw / 30 * 8);
+				height:calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
+			}
+
+			#trainDColor {
+				position: absolute;
+				left: calc(100vw / 30 * 20);
+				top: calc((100vh - 100vw) / 2 + 100vw / 6 * 3 + 100vw / 20);
+				width: calc(100vw / 30 * 8);
+				height:calc(100vw / 6 - 100vw / 20 * 2);
+				font-size: calc(100vw / 20);
 			}
 		}
 	</style>
@@ -112,7 +249,49 @@
 		<button id='continueButton'>続きから</button>
 	</div>
 	<div id="init" class="screen">
-		<input id="trainAName" type="text">
+		<input id="trainAName" type="text" maxlength="8">
+		<input id="trainBName" type="text" maxlength="8">
+		<input id="trainCName" type="text" maxlength="8">
+		<input id="trainDName" type="text" maxlength="8">
+		<select name="color" id="trainAColor">
+			<option value="blue">青色</option>
+			<option value="cyan">シアン</option>
+			<option value="goldenrod">金色</option>
+			<option value="gray">灰色</option>
+			<option value="grey">グレー</option>
+			<option value="green">緑色</option>
+			<option value="khaki">カーキ色</option>
+			<option value="magenta">マゼンタ</option>
+			<option value="olivegreen">オリーブ色</option>
+			<option value="orange">橙色</option>
+			<option value="orchid">蘭色</option>
+			<option value="red">赤</option>
+			<option value="salmon">サーモン色</option>
+			<option value="seagreen">シー・グリーン</option>
+			<option value="slateblue">スレート・ブルー</option>
+			<option value="slategray">スレート・鼠色</option>
+			<option value="slategrey">スレート・グレー</option>
+			<option value="turquoise">青緑色</option>
+			<option value="violet">紫色</option>
+		</select>
+		<select name="color" id="trainBColor">
+			<option value="red">赤</option>
+			<option value="blue">青</option>
+			<option value="green">緑</option>
+			<option value="yellow">黄</option>
+		</select>
+		<select name="color" id="trainCColor">
+			<option value="red">赤</option>
+			<option value="blue">青</option>
+			<option value="green">緑</option>
+			<option value="yellow">黄</option>
+		</select>
+		<select name="color" id="trainDColor">
+			<option value="red">赤</option>
+			<option value="blue">青</option>
+			<option value="green">緑</option>
+			<option value="yellow">黄</option>
+		</select>
 	</div>
 	<div id="loadData" class="screen">
 	</div>
@@ -121,7 +300,7 @@
 const ModeType = {
 	HOME: 0,
 	INIT: 1, // 初めから
-	LOAD_DATE: 2, // 続きから
+	LOAD_DATA: 2, // 続きから
 };
 
 class Train {
@@ -135,6 +314,12 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 let mode = ModeType.HOME;
 let n;
+let train = [
+	new Train('', 'blue'),
+	new Train('', 'green'),
+	new Train('', 'yellow'),
+	new Train('', 'red'),
+];
 
 function showScreen(id) {
 	document.querySelectorAll('.screen').forEach(function(screen) {
@@ -143,23 +328,31 @@ function showScreen(id) {
 	document.getElementById(id).classList.add('active');
 }
 
+function message(one, two, three) {
+	ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+	ctx.fillRect(n / 30, n / 30 * 21, n / 30 * 28, n / 30 * 8);
+	ctx.font = `${n / 16}px 游明朝`;
+	ctx.fillStyle = 'black';
+	ctx.fillText(one, n / 30 * 3, n / 9 * 7);
+	ctx.fillText(two, n / 30 * 3, n / 90 * 77);
+	ctx.fillText(three, n / 30 * 3, n / 15 * 14);
+}
+
 function draw() {
 	ctx.clearRect(0, 0, n, n);
 
 	switch(mode) {
 		case ModeType.HOME:
-			ctx.font = `${n / 5.5}px Arial`;
+			ctx.font = `${n / 5.5}px 游明朝`;
 			ctx.fillStyle = 'black';
-			ctx.fillText('桃太郎電鉄', (n - ctx.measureText('桃太郎電鉄').width) / 2, n / 7 * 2);
+			ctx.fillText('桃太郎電鉄', n / 22, n / 7 * 2);
 			break;
 		case ModeType.INIT:
-			ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-			ctx.fillRect(n / 30, n / 3 * 2 + n / 30, n / 30 * 28, n / 3 - n / 30 * 2);
-			ctx.font = `${(n / 3 - n / 30 * 5) / 3} Arial`;
-			ctx.fillStyle = 'black';
-			ctx.fillText('社長の名前と', n / 30 * 3, n / 3 * 2 + n / 30 + n / 30 * 25 / 3);
-			ctx.fillText('電車の色を', n / 30 * 3, n / 3 * 2 + n / 30 + n / 30 * 25 / 3 * 2);
-			ctx.fillText('設定してください', n / 30 * 3, n / 3 * 2 + n / 30 + n / 30 * 25);
+			message('社長の名前と', '電車の色を', '設定してください');
+			for(let i = 0; i < 4; i ++) {
+				ctx.fillStyle = train[i].color;
+				ctx.fillRect(n / 30, n / 6 * i + n / 60, n / 30 * 28, n / 6 - n / 60 * 2);
+			}
 			break;
 	}
 }
@@ -178,7 +371,7 @@ document.getElementById('startButton').addEventListener('click', function() {
 });
 
 document.getElementById('continueButton').addEventListener('click', function() {
-	mode = ModeType.LOAD_DATE;
+	mode = ModeType.LOAD_DATA;
 	showScreen('loadData');
 	draw();
 });
