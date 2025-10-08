@@ -260,43 +260,72 @@
 		<input id="trainName2" type="text" maxlength="8">
 		<input id="trainName3" type="text" maxlength="8">
 		<select name="color" id="trainColor0">
-			<option value="blue">青色</option>
-			<option value="cyan">シアン</option>
-			<option value="goldenrod">金色</option>
-			<option value="gray">灰色</option>
-			<option value="grey">グレー</option>
-			<option value="green">緑色</option>
-			<option value="khaki">カーキ色</option>
-			<option value="magenta">マゼンタ</option>
-			<option value="olivegreen">オリーブ色</option>
-			<option value="orange">橙色</option>
-			<option value="orchid">蘭色</option>
+			<option value="blue">青</option>
+			<option value="cyan">水</option>
+			<option value="goldenrod">金</option>
+			<option value="gray">灰</option>
+			<option value="green">緑</option>
+			<option value="khaki">黄</option>
+			<option value="magenta">桃</option>
+			<option value="olivegreen">深緑</option>
+			<option value="orange">橙</option>
+			<option value="orchid">蘭</option>
 			<option value="red">赤</option>
-			<option value="salmon">サーモン色</option>
-			<option value="seagreen">シー・グリーン</option>
-			<option value="slateblue">スレート・ブルー</option>
-			<option value="slategray">スレート・鼠色</option>
-			<option value="slategrey">スレート・グレー</option>
-			<option value="turquoise">青緑色</option>
-			<option value="violet">紫色</option>
+			<option value="salmon">肌</option>
+			<option value="slateblue">青紫</option>
+			<option value="turquoise">青緑</option>
+			<option value="violet">紫</option>
 		</select>
 		<select name="color" id="trainColor1">
-			<option value="red">赤</option>
 			<option value="blue">青</option>
+			<option value="cyan">水</option>
+			<option value="goldenrod">金</option>
+			<option value="gray">灰</option>
 			<option value="green">緑</option>
-			<option value="yellow">黄</option>
+			<option value="khaki">黄</option>
+			<option value="magenta">桃</option>
+			<option value="olivegreen">深緑</option>
+			<option value="orange">橙</option>
+			<option value="orchid">蘭</option>
+			<option value="red">赤</option>
+			<option value="salmon">肌</option>
+			<option value="slateblue">青紫</option>
+			<option value="turquoise">青緑</option>
+			<option value="violet">紫</option>
 		</select>
 		<select name="color" id="trainColor2">
-			<option value="red">赤</option>
 			<option value="blue">青</option>
+			<option value="cyan">水</option>
+			<option value="goldenrod">金</option>
+			<option value="gray">灰</option>
 			<option value="green">緑</option>
-			<option value="yellow">黄</option>
+			<option value="khaki">黄</option>
+			<option value="magenta">桃</option>
+			<option value="olivegreen">深緑</option>
+			<option value="orange">橙</option>
+			<option value="orchid">蘭</option>
+			<option value="red">赤</option>
+			<option value="salmon">肌</option>
+			<option value="slateblue">青紫</option>
+			<option value="turquoise">青緑</option>
+			<option value="violet">紫</option>
 		</select>
 		<select name="color" id="trainColor3">
-			<option value="red">赤</option>
 			<option value="blue">青</option>
+			<option value="cyan">水</option>
+			<option value="goldenrod">金</option>
+			<option value="gray">灰</option>
 			<option value="green">緑</option>
-			<option value="yellow">黄</option>
+			<option value="khaki">黄</option>
+			<option value="magenta">桃</option>
+			<option value="olivegreen">深緑</option>
+			<option value="orange">橙</option>
+			<option value="orchid">蘭</option>
+			<option value="red">赤</option>
+			<option value="salmon">肌</option>
+			<option value="slateblue">青紫</option>
+			<option value="turquoise">青緑</option>
+			<option value="violet">紫</option>
 		</select>
 	</div>
 	<div id="loadData" class="screen">
@@ -329,7 +358,7 @@ function showScreen(id) {
 	document.getElementById(id).classList.add('active');
 }
 
-function message(one, two, three) {
+function message(one, two, three, color) {
 	ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
 	ctx.fillRect(n / 30, n / 30 * 21, n / 30 * 28, n / 30 * 8);
 	ctx.font = `${n / 16}px 游明朝`;
@@ -337,6 +366,13 @@ function message(one, two, three) {
 	ctx.fillText(one, n / 30 * 3, n / 9 * 7);
 	ctx.fillText(two, n / 30 * 3, n / 90 * 77);
 	ctx.fillText(three, n / 30 * 3, n / 15 * 14);
+	ctx.beginPath();
+	ctx.moveTo(n / 30 * 26, n / 30 * 27);
+	ctx.lineTo(n / 30 * 28, n / 30 * 27);
+	ctx.lineTo(n / 30 * 27, n / 30 * 28);
+	ctx.closePath();
+	ctx.fillStyle = color;
+	ctx.fill();
 }
 
 function draw() {
@@ -349,7 +385,7 @@ function draw() {
 			ctx.fillText('桃太郎電鉄', n / 22, n / 7 * 2);
 			break;
 		case ModeType.INIT:
-			message('社長の名前と', '電車の色を', '設定してください');
+			message('社長の名前と', '電車の色を', '設定してください', 'white');
 			for(let i = 0; i < 4; i ++) {
 				ctx.fillStyle = train[i].color;
 				document.getElementById(`trainName${i}`).style.backgroundColor = `dark${train[i].color}`;
