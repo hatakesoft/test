@@ -366,10 +366,11 @@ canvas.addEventListener('pointerdown', function(event) {
 document.getElementById('startButton').addEventListener('click', function() {
 	mode = ModeType.INIT;
 	showScreen('init');
+	train = [];
 	for(let i = 0; i < 4; i ++) {
 		let trainColor = document.querySelector(`#trainColor${i}`)
 		train.push(new Train('', trainColor.value));
-		trainColor.addEventListener('select', (event) => {
+		trainColor.addEventListener('change', (event) => {
 			train[i].color = trainColor.value;
 			draw();
 		});
