@@ -445,13 +445,13 @@ window.addEventListener('keydown', function(event) {
 					train[i].name = document.getElementById(`trainName${i}`).value;
 				}
 				showScreen('blank');
-			} else if(event.key == 'Delete') {
+			} else if(event.key == 'Escape') {
 				mode = ModeType.HOME;
 				showScreen('home');
 			}
 			break;
 		case ModeType.LOAD_DATA:
-			if(event.key === 'Delete') {
+			if(event.key === 'Escape') {
 				mode = ModeType.HOME;
 				showScreen('home');
 			}
