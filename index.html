@@ -267,7 +267,6 @@
 			<option value="green">緑</option>
 			<option value="khaki">黄</option>
 			<option value="magenta">桃</option>
-			<option value="olivegreen">深緑</option>
 			<option value="orange">橙</option>
 			<option value="orchid">蘭</option>
 			<option value="red">赤</option>
@@ -284,7 +283,6 @@
 			<option value="green">緑</option>
 			<option value="khaki">黄</option>
 			<option value="magenta">桃</option>
-			<option value="olivegreen">深緑</option>
 			<option value="orange">橙</option>
 			<option value="orchid">蘭</option>
 			<option value="red">赤</option>
@@ -301,7 +299,6 @@
 			<option value="green">緑</option>
 			<option value="khaki">黄</option>
 			<option value="magenta">桃</option>
-			<option value="olivegreen">深緑</option>
 			<option value="orange">橙</option>
 			<option value="orchid">蘭</option>
 			<option value="red">赤</option>
@@ -318,7 +315,6 @@
 			<option value="green">緑</option>
 			<option value="khaki">黄</option>
 			<option value="magenta">桃</option>
-			<option value="olivegreen">深緑</option>
 			<option value="orange">橙</option>
 			<option value="orchid">蘭</option>
 			<option value="red">赤</option>
@@ -335,6 +331,7 @@
 const ModeType = {
 	HOME: 0,
 	INIT: 1, // 初めから
+	INTRO1: 1.5, // 説明 一頁目
 	LOAD_DATA: 2, // 続きから
 };
 
@@ -400,6 +397,21 @@ canvas.addEventListener('pointerdown', function(event) {
 	const rect = canvas.getBoundingClientRect();
 	const mouseX = event.clientX - rect.left;
 	const mouseY = event.clientY - rect.top;
+	if(
+		mouseX - n / 30 * 26 >= 0 &&
+		mouseX - n / 30 * 26 <= n / 30 * 2 &&
+		mouseY - n / 30 * 27 >= 0 &&
+		mouseY - n / 30 * 27 <= 1 - Math.abs((mouseX - n / 30 * 26) - 1)
+	) {
+		switch(mode) {
+			case ModeType.INIT:
+				mode = ModeType.INTRO1;
+				for(let i = 0; i < 4; i ++) {
+					train[i].name = document.getElementById(`trainName${i}`).value;
+				}
+		}
+	}
+
 	draw();
 });
 
