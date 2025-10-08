@@ -370,7 +370,8 @@ document.getElementById('startButton').addEventListener('click', function() {
 		let trainColor = document.querySelector(`#trainColor${i}`)
 		train.push(new Train('', trainColor.value));
 		trainColor.addEventListener('select', (event) => {
-			train[i].color = trainColor.value.substring(trainColor.selectionStart, trainColor.selectionEnd);
+			train[i].color = trainColor.value;
+			draw();
 		});
 	}
 	draw();
