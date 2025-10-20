@@ -16,7 +16,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install Wasm Pack
+      run: cargo install wasm-pack
+    - name: Add target
+      run: rustup target add wasm32-unknown-unknown
     - name: Build
-      run: cargo build --verbose
-    - name: Run
-      run: cargo run --verbose
+      run: wasm-pack build
+    - name: Upload artifacts
+      uses: actions/upload-artifacts@v4
+      with:
+        name: artifacts
+        path: pkg/
