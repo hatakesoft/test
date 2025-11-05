@@ -1,20 +1,13 @@
 use wasm_bindgen::prelude::*;
-use web_sys::CanvasRenderingContext2d;
 
 #[wasm_bindgen]
 pub fn draw_circle() {
     let window = web_sys::window().unwrap();
     let document = window.document().unwrap();
-    let canvas = document.get_element_by_id("canvas")
-        .unwrap()
-        .dyn_into::<web_sys::HtmlCanvasElement>()
-        .unwrap();
+    let canvas = document.get_element_by_id("canvas").unwrap();
 
     let ctx = canvas
-        .get_context("2d").unwrap()
-        .unwrap()
-        .dyn_into::<CanvasRenderingContext2d>()
-        .unwrap();
+        .get_context("2d").unwrap();
     
     ctx.begin_path();
     ctx.arc(150.0, 75.0, 50.0, 0.0, std::f64::consts::PI * 2.0).unwrap();
